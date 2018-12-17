@@ -18,10 +18,12 @@ namespace PedidoFacil.Services
             var pedidos = new MenuItem() { Title = "Pedidos", Icon = "", TargetType = typeof(PedidosPage) };
             var clientes = new MenuItem() { Title = "Clientes", Icon = "", TargetType = typeof(ClientesPage) };
             var representadas = new MenuItem() { Title = "Representadas", Icon = "", TargetType = typeof(RepresentadasPage) };
+            var agenda = new MenuItem() { Title = "Agenda", Icon = "", TargetType = typeof(AgendaPage) };
 
             menuList.Add(pedidos);
             menuList.Add(clientes);
             menuList.Add(representadas);
+            menuList.Add(agenda);
 
             return menuList;
         }

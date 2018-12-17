@@ -27,6 +27,13 @@ namespace PedidoFacil.ViewModels
             get { return isPresented; }
             set { SetProperty(ref isPresented, value); }
         }
+
+        private string loggedUser;
+        public string LoggedUser
+        {
+            get { return loggedUser; }
+            set { SetProperty(ref loggedUser, value); }
+        }
         #endregion
 
         #region Commands
@@ -35,6 +42,7 @@ namespace PedidoFacil.ViewModels
 
         public MainPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            LoggedUser = "Luiz Henrique";
             MenuItemList = MenuItemService.GetMenuItems();
         }
     }

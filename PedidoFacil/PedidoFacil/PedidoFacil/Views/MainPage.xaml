@@ -4,16 +4,16 @@
             x:Class="PedidoFacil.Views.MainPage">
 
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu" BackgroundColor="#e8e8e8">
+        <ContentPage Title="Menu" BackgroundColor="BlueViolet">
             <StackLayout Orientation="Vertical">
-                <StackLayout BackgroundColor="#e74c3c" HeightRequest="75">
-                    <Label Text="Menu" FontSize="20"
-                           VerticalOptions="CenterAndExpand"
+                <StackLayout BackgroundColor="DarkBlue" HeightRequest="50" Padding="10,0,0,5">
+                    <Label Text="{Binding LoggedUser, Mode=OneWay}" FontSize="10"
+                           VerticalOptions="EndAndExpand"
                            TextColor="White"
-                           HorizontalOptions="Center"></Label>
-                </StackLayout> 
+                           HorizontalOptions="StartAndExpand"></Label>
+                </StackLayout>
 
-                <ListView x:Name="NavigationMenuList" RowHeight="60"
+                <ListView x:Name="NavigationMenuList" RowHeight="30"
                           SeparatorVisibility="None" BackgroundColor="#e8e8e8"
                           ItemsSource="{Binding MenuItemList, Mode=OneWay}"
                           ItemSelected="OnMenuItemSelected">
@@ -22,16 +22,16 @@
                             <ViewCell>
                                 <StackLayout VerticalOptions="FillAndExpand"
                                    Orientation="Horizontal"
-                                   Padding="20,10,0,10" Spacing="20">
+                                   Padding="0,0,0,0" Spacing="0">
 
                                     <Image Source="{Binding Icon}"
-                                     WidthRequest="40"  HeightRequest="40" 
+                                     WidthRequest="40"  HeightRequest="20" 
                                      VerticalOptions="Center" />
 
                                     <Label Text="{Binding Title}"
-                                       FontSize="Medium"
+                                       FontSize="10"
                                        VerticalOptions="Center"
-                                       TextColor="Black"/>
+                                       TextColor="DarkSlateGray"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

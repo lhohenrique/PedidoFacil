@@ -30,6 +30,7 @@ namespace PedidoFacil
         {
             //containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<AgendaPage, AgendaPageViewModel>();
         }
     }
 }
