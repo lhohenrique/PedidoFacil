@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace PedidoFacil.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PedidosPage : ContentPage
+	public partial class PedidosPage : TabbedPage
 	{
 		public PedidosPage ()
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void PedidosSentList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+    }
 }

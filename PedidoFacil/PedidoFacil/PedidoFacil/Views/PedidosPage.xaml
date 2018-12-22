@@ -1,14 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PedidoFacil.Views.PedidosPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Pedidos"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+
+    <ContentPage Title="{Binding TitleTab1}">
+        <ListView x:Name="PedidosSentList"
+                      RowHeight="80"
+                      SeparatorVisibility="None"
+                      ItemsSource="{Binding PedidosSentList, Mode=OneWay}"
+                      ItemSelected="PedidosSentList_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         Spacing="0">
+
+                            <Label Text="{Binding PedidoNumber}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding ClienteName}"
+                                   FontSize="10"
+                                   VerticalOptions="Center"
+                                   TextColor="DarkSlateGray"/>
+                            <Label Text="{Binding RepresentadaName}"
+                                   FontSize="10"
+                                   VerticalOptions="Center"
+                                   TextColor="DarkSlateGray"/>
+                            <Label Text="{Binding CondicaoDePagamento}"
+                                   FontSize="10"
+                                   VerticalOptions="Center"
+                                   TextColor="DarkSlateGray"/>
+                            <Label Text="{Binding FormattedValue}"
+                                    FontSize="14"
+                                    VerticalOptions="Center"
+                                    TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+
+    <ContentPage Title="{Binding TitleTab2}">
+        <ListView x:Name="PedidosNotSentList"
+                      RowHeight="80"
+                      SeparatorVisibility="None"
+                      ItemsSource="{Binding PedidosNotSentList, Mode=OneWay}"
+                      ItemSelected="PedidosSentList_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         Spacing="0">
+
+                            <Label Text="{Binding PedidoNumber}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding ClienteName}"
+                                   FontSize="10"
+                                   VerticalOptions="Center"
+                                   TextColor="DarkSlateGray"/>
+                            <Label Text="{Binding RepresentadaName}"
+                                   FontSize="10"
+                                   VerticalOptions="Center"
+                                   TextColor="DarkSlateGray"/>
+                            <Label Text="{Binding CondicaoDePagamento}"
+                                   FontSize="10"
+                                   VerticalOptions="Center"
+                                   TextColor="DarkSlateGray"/>
+                            <Label Text="{Binding FormattedValue}"
+                                    FontSize="14"
+                                    VerticalOptions="Center"
+                                    TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+</TabbedPage>
