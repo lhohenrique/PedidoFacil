@@ -1,98 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="PedidoFacil.Views.PedidosPage"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="PedidoFacil.Views.PedidosPage"
             Title="Pedidos">
 
     <ContentPage Title="{Binding TitleTab1}" BackgroundColor="LightBlue" Padding="5">
-        <ListView x:Name="PedidosSentList"
-                      RowHeight="110"
-                      SeparatorVisibility="None"
-                      ItemsSource="{Binding PedidosSentList, Mode=OneWay}"
-                      ItemSelected="PedidosSentList_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout VerticalOptions="FillAndExpand"
-                                     BackgroundColor="White"
-                                     Orientation="Vertical"
-                                     Spacing="0"
-                                     Padding="7"
-                                     Margin="0,0,0,5">
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+            
+                <ListView x:Name="PedidosSentList"
+                            RowHeight="110"
+                            SeparatorVisibility="None"
+                            ItemsSource="{Binding PedidosSentList, Mode=OneWay}"
+                            ItemSelected="PedidosSentList_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                            BackgroundColor="White"
+                                            Orientation="Vertical"
+                                            Spacing="0"
+                                            Padding="7"
+                                            Margin="0,0,0,5">
 
-                            <Label Text="{Binding PedidoNumber}"
-                                   FontSize="14"
-                                   VerticalOptions="Center"
-                                   TextColor="Black"
-                                   Margin="0,0,0,5"/>
-                            <Label Text="{Binding ClienteName}"
-                                   FontSize="10"
-                                   VerticalOptions="Center"
-                                   TextColor="DarkSlateGray"/>
-                            <Label Text="{Binding RepresentadaName}"
-                                   FontSize="10"
-                                   VerticalOptions="Center"
-                                   TextColor="DarkSlateGray"/>
-                            <Label Text="{Binding CondicaoDePagamento}"
-                                   FontSize="10"
-                                   VerticalOptions="Center"
-                                   TextColor="DarkSlateGray"/>
-                            <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,5,0,5"></BoxView>
-                            <Label Text="{Binding FormattedValue}"
-                                    FontSize="14"
-                                    VerticalOptions="Center"
-                                    TextColor="Black"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                    <Label Text="{Binding PedidoNumber}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"
+                                        Margin="0,0,0,5"/>
+                                    <Label Text="{Binding ClienteName}"
+                                        FontSize="10"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                                    <Label Text="{Binding RepresentadaName}"
+                                        FontSize="10"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                                    <Label Text="{Binding CondicaoDePagamento}"
+                                        FontSize="10"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                                    <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,5,0,5"></BoxView>
+                                    <Label Text="{Binding FormattedValue}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentView>
+            <controls:FloatingActionButton x:Name="FABTab1" HorizontalOptions="CenterAndExpand" 
+                                            VerticalOptions="CenterAndExpand" 
+                                           Image="plus.png" ButtonColor="#03A9F4"
+                                           Command="{Binding AddPedidoButtonCommand}"
+                                       
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-57}" />
+        </RelativeLayout>
     </ContentPage>
 
     <ContentPage Title="{Binding TitleTab2}" BackgroundColor="LightBlue" Padding="5">
-        <ListView x:Name="PedidosNotSentList"
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                
+                <ListView x:Name="PedidosNotSentList"
                       RowHeight="110"
                       SeparatorVisibility="None"
                       ItemsSource="{Binding PedidosNotSentList, Mode=OneWay}"
                       ItemSelected="PedidosSentList_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout VerticalOptions="FillAndExpand"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand"
                                      BackgroundColor="White"
                                      Orientation="Vertical"
                                      Spacing="0"
                                      Padding="7"
                                      Margin="0,0,0,5">
 
-                            <Label Text="{Binding PedidoNumber}"
+                                    <Label Text="{Binding PedidoNumber}"
                                    FontSize="14"
                                    VerticalOptions="Center"
                                    TextColor="Black"
                                    Margin="0,0,0,5"/>
-                            <Label Text="{Binding ClienteName}"
+                                    <Label Text="{Binding ClienteName}"
                                    FontSize="10"
                                    VerticalOptions="Center"
                                    TextColor="DarkSlateGray"/>
-                            <Label Text="{Binding RepresentadaName}"
+                                    <Label Text="{Binding RepresentadaName}"
                                    FontSize="10"
                                    VerticalOptions="Center"
                                    TextColor="DarkSlateGray"/>
-                            <Label Text="{Binding CondicaoDePagamento}"
+                                    <Label Text="{Binding CondicaoDePagamento}"
                                    FontSize="10"
                                    VerticalOptions="Center"
                                    TextColor="DarkSlateGray"/>
-                            <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,5,0,5"></BoxView>
-                            <Label Text="{Binding FormattedValue}"
+                                    <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,5,0,5"></BoxView>
+                                    <Label Text="{Binding FormattedValue}"
                                     FontSize="14"
                                     VerticalOptions="Center"
                                     TextColor="Black"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentView>
+            <controls:FloatingActionButton x:Name="FABTab2" HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" 
+                                           Image="plus.png" ButtonColor="#03A9F4"
+                                           Command="{Binding AddPedidoButtonCommand}"
+                                       
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-57}" />
+        </RelativeLayout>
     </ContentPage>
 </TabbedPage>

@@ -1,5 +1,6 @@
 ﻿using PedidoFacil.Models;
 using PedidoFacil.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -40,16 +41,26 @@ namespace PedidoFacil.ViewModels
         }
         #endregion
 
+        #region Commands
+        public DelegateCommand AddPedidoButtonCommand { get; set; }
+        #endregion
+
         public PedidosPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             TitleTab1 = "Enviados";
             TitleTab2 = "Não Enviados";
+
+            AddPedidoButtonCommand = new DelegateCommand(AddPedidoButtonAction);
 
             PedidosSentList = MockService.GetPedidosSentList();
             PedidosNotSentList = MockService.GetPedidosNotSentList();
         }
 
         #region Actions
+        private void AddPedidoButtonAction()
+        {
+            
+        }
         #endregion
     }
 }

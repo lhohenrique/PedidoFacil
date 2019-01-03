@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using Prism;
 using Prism.Ioc;
+using SuaveControls.FloatingActionButton.iOS.Renderers;
 using UIKit;
 
 
@@ -23,6 +24,8 @@ namespace PedidoFacil.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
+
+            FloatingActionButtonRenderer.InitRenderer();
 
             return base.FinishedLaunching(app, options);
         }
