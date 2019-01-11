@@ -1,6 +1,7 @@
 ﻿using PedidoFacil.Models;
 using PedidoFacil.Services;
 using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ using System.Text;
 
 namespace PedidoFacil.ViewModels
 {
-    public class PedidosPageViewModel : ViewModelBase
+    public class PedidosPageViewModel : BindableBase, INavigatedAware
     {
+        private INavigationService navigationService;
+
         #region Properties
         private string titleTab1;
         public string TitleTab1
@@ -45,8 +48,10 @@ namespace PedidoFacil.ViewModels
         public DelegateCommand AddPedidoButtonCommand { get; set; }
         #endregion
 
-        public PedidosPageViewModel(INavigationService navigationService) : base(navigationService)
+        public PedidosPageViewModel(INavigationService navigationService)
         {
+            this.navigationService = navigationService;
+
             TitleTab1 = "Enviados";
             TitleTab2 = "Não Enviados";
 
@@ -58,6 +63,16 @@ namespace PedidoFacil.ViewModels
 
         #region Actions
         private void AddPedidoButtonAction()
+        {
+            navigationService.NavigateAsync("AddPedidosPage");
+        }
+
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            
+        }
+
+        public void OnNavigatedTo(INavigationParameters parameters)
         {
             
         }

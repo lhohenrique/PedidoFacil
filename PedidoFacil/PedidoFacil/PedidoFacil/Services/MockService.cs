@@ -57,5 +57,22 @@ namespace PedidoFacil.Services
 
             return pedidosSentList;
         }
+
+        public static ObservableCollection<Cliente> GetClientesList()
+        {
+            var clientesList = new ObservableCollection<Cliente>
+            {
+                new Cliente
+                {
+                    Name = "Cliente 1"
+                },
+                new Cliente
+                {
+                    Name = "Cliente 2"
+                }
+            };
+
+            return clientesList;
+        }
     }
 }

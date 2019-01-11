@@ -57,7 +57,7 @@
             </ContentView>
             <controls:FloatingActionButton x:Name="FABTab1" HorizontalOptions="CenterAndExpand" 
                                             VerticalOptions="CenterAndExpand" 
-                                           Image="plus.png" ButtonColor="#03A9F4"
+                                           Image="plus.png" ButtonColor="LightBlue"
                                            Command="{Binding AddPedidoButtonCommand}"
                                        
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
@@ -115,7 +115,7 @@
             </ContentView>
             <controls:FloatingActionButton x:Name="FABTab2" HorizontalOptions="CenterAndExpand" 
                                            VerticalOptions="CenterAndExpand" 
-                                           Image="plus.png" ButtonColor="#03A9F4"
+                                           Image="plus.png" ButtonColor="LightBlue"
                                            Command="{Binding AddPedidoButtonCommand}"
                                        
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
